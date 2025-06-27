@@ -17,10 +17,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 </head>
 <body>
     <div class="main-container">
-        <h2>Opciones de Produccion</h2>
-        <p>Bienvenido al modulo para administrar las opciones de produccion</p>
-        <p>desde aqui podras agregar, eliminar o editar las diferentes opciones de produccion como: tamaño de las pieza, color y tipos de bordado</p>
-        
+        <div class="label_presentacion">
+            <h2>Opciones de Produccion</h2>
+            <p>Bienvenido al modulo para administrar las opciones de produccion</p>
+            <p>desde aqui podras agregar, eliminar o editar las diferentes opciones de produccion como: tamaño de las pieza, color y tipos de bordado</p>
+        </div>
         <div class="button-grid">
             <a href="admin_piezas.php">TAMAÑO DE PIEZAS</a>
             <a href="admin_bordados.php">TIPOS DE BORDADOS</a>

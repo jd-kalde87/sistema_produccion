@@ -24,7 +24,11 @@ $colores = obtenerOpciones($conn, 'color', 'id_color', 'codigo_color');
 </head>
 <body>
     <div class="main-container">
-        <h2>Ingresar Información Diaria</h2>
+        <div class="label_presentacion">
+            <h2>Ingresar Información Diaria</h2>
+            <p>Bienvenido al modulo para ingresar la informacion diaria</p>
+            <p>Por favor ingrese la informacion de produccion que usted realizo</p>
+        </div>
         <form action="php/procesar_informacion_diaria.php" method="POST">
 
             <div class="form-group">
@@ -97,14 +101,14 @@ $colores = obtenerOpciones($conn, 'color', 'id_color', 'codigo_color');
                 <textarea name="observaciones" rows="4" placeholder="coloque una o varias observaciones si al momento de realizar la orden de produccion se genero alguna"></textarea>
             </div>
 
-            <button type="submit" class="btn">Guardar Información</button>
+            <button type="submit" class="btn btn-agregar">Guardar Información</button>
         </form>
-        <div class="form-links">
-            <a href="inicio.php">Regresar al inicio</a>
-        </div>
         <?php if (isset($_GET['success'])): ?>
         <p class="alert alert-success">✅ Información registrada exitosamente.</p>
         <?php endif; ?> 
+        <div class="form-links">
+            <a href="inicio.php">Regresar al inicio</a>
+        </div>
     </div>
     
     <script src="js/calculos.js"></script>

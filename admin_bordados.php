@@ -22,10 +22,11 @@ $_SESSION['bordados'] = obtenerTiposBordado($conn);
 </head>
 <body>
     <div class="main-container">
-        <h2>Tipos de Bordado</h2>
-        <p>En este modulo puedes consultar los tipos de bordado registrados en el sistema</p>
-        <p>y tambien puede agregar o eliminar el que tu elijas</p>
-
+        <div class="label_presentacion">
+            <h2>Tipos de Bordado</h2>
+            <p>En este modulo puedes consultar los tipos de bordado registrados en el sistema</p>
+            <p>y tambien puede agregar o eliminar el que tu elijas</p>
+        </div>
         <!-- Mensajes de éxito/error -->
         <?php if (isset($_SESSION['success'])): ?>
             <p class="alert alert-success"><?= htmlspecialchars($_SESSION['success']) ?></p>
@@ -38,16 +39,18 @@ $_SESSION['bordados'] = obtenerTiposBordado($conn);
 
         <!-- Tabla de bordados existentes -->
         <div class="seccion-consulta">
-            <h3>Tipos de Bordado Registrados en el Sistema</h3>
-            <div class="tabla-contenedor">
-                    <?= generarTabla(
-                        $_SESSION['bordados'] ?? [],
-                        [
-                            'id_bordado' => 'ID',
-                            'tipo_bordado' => 'Tipo de Bordado'
-                        ],
-                        'No hay tipos de bordado registrados.'
-                    ) ?>
+            <div id="tabla-produccion">
+                <h3>Tipos de Bordado Registrados en el Sistema</h3>
+                <div class="tabla-contenedor">
+                        <?= generarTabla(
+                            $_SESSION['bordados'] ?? [],
+                            [
+                                'id_bordado' => 'ID',
+                                'tipo_bordado' => 'Tipo de Bordado'
+                            ],
+                            'No hay tipos de bordado registrados.'
+                        ) ?>
+                </div>
             </div>
         </div>
 

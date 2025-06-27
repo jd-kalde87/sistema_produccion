@@ -17,10 +17,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 </head>
 <body>
     <div class="main-container">
-        <h2>Generacion de informes</h2>
-        <p>Bienvenido al modulo para generar informes</p>
-        <p>desde aqui podras generar los informes que mas relevancia tengan para la toma de decisiones en la produccion</p>
-        
+        <div class="label_presentacion">
+            <h2>Generacion de informes</h2>
+            <p>Bienvenido al modulo para generar informes</p>
+            <p>desde aqui podras generar los informes que mas relevancia tengan para la toma de decisiones en la produccion</p>
+        </div>
         <div class="button-grid">
             <a href="tabla_registro.php">INFOME DIARIO DE PRODUCCION</a>
             <a href="#">VALUE</a>

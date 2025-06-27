@@ -17,10 +17,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 </head>
 <body>
     <div class="main-container">
-        <h2>Administracion de Maquinaria</h2>
-        <p>Bienvenido al modulo para administrar las opciones de la maquinaria</p>
-        <p>desde aqui podras agregar o eliminar maquinaria registrada en el sistema</p>
-        
+        <div class="label_presentacion">
+            <h2>Administracion de Maquinaria</h2>
+            <p>Bienvenido al modulo para administrar las opciones de la maquinaria</p>
+            <p>desde aqui podras agregar o eliminar maquinaria registrada en el sistema</p>
+        </div>        
         <div class="button-grid">
             <a href="agregar_maquinaria.php">AGREGAR NUEVAS MAQUINAS</a>
             <a href="eliminar_maquina.php">ELIMINAR MAQUINAS</a>

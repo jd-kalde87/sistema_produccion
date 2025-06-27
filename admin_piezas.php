@@ -24,10 +24,11 @@ $_SESSION['tamaño'] = $conn->query("SELECT * FROM tamaño_pieza")->fetch_all(MY
 </head>
 <body>
     <div class="main-container">
-        <h2>Opciones de Piezas</h2>
-        <p>Bienvenido al módulo para administrar las opciones de las piezas.</p>
-        <p>Desde aquí podrás agregar o eliminar los tamaños de las piezas.</p>
-
+        <div class="label_presentacion">
+            <h2>Opciones de Piezas</h2>
+            <p>Bienvenido al módulo para administrar las opciones de las piezas.</p>
+            <p>Desde aquí podrás agregar o eliminar los tamaños de las piezas.</p>
+        </div>
         <?php if (isset($_SESSION['success'])): ?>
             <p class="alert alert-success"><?= $_SESSION['success'] ?></p>
             <?php unset($_SESSION['success']); ?>
@@ -38,6 +39,7 @@ $_SESSION['tamaño'] = $conn->query("SELECT * FROM tamaño_pieza")->fetch_all(MY
         <?php endif; ?>
 
         <div class="seccion-consulta">
+            <div id="tabla-produccion">
                 <h3>Tamaños de piezas registrados en el sistema</h3>
                 <?= generarTabla(
                 $_SESSION['tamaño'] ?? [],
@@ -46,7 +48,8 @@ $_SESSION['tamaño'] = $conn->query("SELECT * FROM tamaño_pieza")->fetch_all(MY
                     'tamaño_pieza' => 'Tamaño'
                 ],
                 'No hay tamaños registrados.'
-            ) ?>
+                ) ?>
+            </div>
         </div>
      <div class="seccion-formulario">
         <div class="form-section">

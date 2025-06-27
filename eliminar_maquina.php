@@ -22,29 +22,32 @@ $_SESSION['maquinas'] = obtenerMaquinas($conn);
 </head>
 <body>
     <div class="main-container">
-        <h2>Eliminar Maquinaria</h2>
-        <p>En esta seccion, podra ver la maquinaria registrada en el sistema</p>
-        <p>y podra elimar alguna de ellas si asi lo requiere</p>
-
+        <div class="label_presentacion">
+            <h2>Eliminar Maquinaria</h2>
+            <p>En esta seccion, podra ver la maquinaria registrada en el sistema</p>
+            <p>y podra elimar alguna de ellas si asi lo requiere</p>
+        </div>
                 <!-- Sección de Consulta -->
         <div class="seccion-consulta">
-            <h3>Máquinas Registradas</h3>
-            <table class="tabla-registro">
-                <thead>
-                    <tr>
-                        <th>Marca</th>
-                        <th>N° Cabezas</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($_SESSION['maquinas'] as $maquina): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($maquina['marca_maquina']) ?></td>
-                        <td><?= $maquina['nro_cabezas'] ?></td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <div id="tabla-produccion">
+                <h3>Maquinaria Registrada en el sistema</h3>
+                <table class="tabla-registro">
+                    <thead>
+                        <tr>
+                            <th>Marca</th>
+                            <th>N° Cabezas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($_SESSION['maquinas'] as $maquina): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($maquina['marca_maquina']) ?></td>
+                            <td><?= $maquina['nro_cabezas'] ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
         
         <!-- Formulario para eliminar máquina -->

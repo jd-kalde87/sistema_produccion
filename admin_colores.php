@@ -22,9 +22,10 @@ $_SESSION['colores'] = obtenerColores($conn);
 </head>
 <body>
     <div class="main-container">
-        <h2>Administración de Colores</h2>
-        <p>En este módulo puedes consultar, agregar o eliminar los colores registrados en el sistema.</p>
-
+        <div class="label_presentacion">
+            <h2>Administración de Colores</h2>
+            <p>En este módulo puedes consultar, agregar o eliminar los colores registrados en el sistema.</p>
+        </div>
         <?php if (isset($_SESSION['success'])): ?>
             <p class="alert alert-success"><?= htmlspecialchars($_SESSION['success']) ?></p>
             <?php unset($_SESSION['success']); ?>
@@ -36,7 +37,8 @@ $_SESSION['colores'] = obtenerColores($conn);
 
         <div class="seccion-consulta">
             <h3>Colores Registrados en el Sistema</h3>
-            <div class="tabla-contenedor"> 
+            <div class="tabla-contenedor">
+                <div id="tabla-produccion"> 
                     <?= generarTabla(
                         $_SESSION['colores'] ?? [],
                         [
@@ -46,6 +48,7 @@ $_SESSION['colores'] = obtenerColores($conn);
                         ],
                         'No hay colores registrados.'
                     ) ?>
+                </div>
             </div>
         </div>
         <div class="seccion-formulario">

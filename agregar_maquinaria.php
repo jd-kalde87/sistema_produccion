@@ -21,20 +21,24 @@ $_SESSION['maquinas'] = $conn->query("SELECT * FROM maquinas")->fetch_all(MYSQLI
 </head>
 <body>
     <div class="main-container">
-        <h2>Agregar Maquinaria</h2>
-        <p>En esta seccion, podra ver la maquinaria registrada en el sistema</p>
-        <p>y podra agregar mas al registro</p>
-        <div class="seccion-consulta">
-                <h3>Maquinaria Registrada en el sistema</h3>
-                <?= generarTabla(
-                $_SESSION['maquinas'] ?? [],
-                [
-                    'id_maquina' => 'ID',
-                    'marca_maquina' => 'Marca',
-                    'nro_cabezas' => 'N° Cabezas'
-                ],
-                'No hay máquinas registradas.'
-                ) ?>
+        <div class="label_presentacion">
+            <h2>Agregar Maquinaria</h2>
+            <p>En esta seccion, podra ver la maquinaria registrada en el sistema</p>
+            <p>y podra agregar mas al registro</p>
+        </div>
+            <div class="seccion-consulta">
+                <div id="tabla-produccion">
+                    <h3>Maquinaria Registrada en el sistema</h3>
+                    <?= generarTabla(
+                    $_SESSION['maquinas'] ?? [],
+                    [
+                        'id_maquina' => 'ID',
+                        'marca_maquina' => 'Marca',
+                        'nro_cabezas' => 'N° Cabezas'
+                    ],
+                    'No hay máquinas registradas.'
+                    ) ?>
+                </div>
         </div>
         <!-- en esta parte se define los mensajes de error y validacion si la maquina existe -->
         <div class="seccion-formulario">
