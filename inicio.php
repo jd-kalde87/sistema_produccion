@@ -18,16 +18,16 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 </head>
 <body>
     <div class="main-container">
-        <h1>TABLERO PRINCIPAL REGISTRO DIARIO DE PRODUCCION</h1>
-        <p>Bienvenido a la pagina principal del Sistema de Produccion</p>
-        <p>desde aqui podras administrar y ejecutar la opcion que necesites</p>
-        
+        <div class="label_presentacion">
+                <h1>TABLERO PRINCIPAL REGISTRO DIARIO DE PRODUCCION</h1>
+                <p>Bienvenido a la pagina principal del Sistema de Produccion</p>
+                <p>desde aqui podras administrar y ejecutar la opcion que necesites</p>
+        </div>
         <div class="button-grid">
             <a href="registro_diairo.php">INGRESAR INFORMACION DIARIA</a>
             <a href="admin_maquinaria.php">ADMINISTRAR MAQUINARIA</a>
             <a href="opciones_produccion.php">OPCIONES DE PRODUCCION</a>
             <a href="informes.php">GENERACION DE INFORMES</a>
-            <a href="#">GENERACION DE INDICADORES</a>
         </div>
         
         <div class="form-links">

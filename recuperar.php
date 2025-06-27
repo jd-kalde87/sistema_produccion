@@ -30,7 +30,7 @@
                 <label for="fecha_nacimiento">Fecha de Nacimiento</label>
                 <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
             </div>
-            <button type="submit" class="btn">Verificar y Restablecer</button>
+            <button type="submit" class="btn btn-agregar">Verificar y Restablecer</button>
         </form>
         <div class="form-links">
             <a href="login.php">Volver a inicio</a>

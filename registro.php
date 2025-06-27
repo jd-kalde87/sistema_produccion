@@ -50,7 +50,7 @@
                 <label for="email">Correo Electrónico</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            <button type="submit" class="btn">Registrarme</button>
+            <button type="submit" class="btn btn-agregar">Registrarme</button>
         </form>
         <div class="form-links">
             <a href="login.php">Ya tengo una cuenta</a>

@@ -33,7 +33,7 @@
                 <label for="password">Contraseña</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit" class="btn">Ingresar</button>
+            <button type="submit" class="btn btn-agregar">Ingresar</button>
         </form>
         <div class="form-links">
             <a href="registro.php">Registrar un usuario nuevo</a>

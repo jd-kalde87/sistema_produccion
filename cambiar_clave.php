@@ -33,7 +33,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 <label for="confirmar_clave">Confirmar Nueva Contraseña</label>
                 <input type="password" id="confirmar_clave" name="confirmar_clave" required>
             </div>
-            <button type="submit" class="btn">Actualizar Contraseña</button>
+            <button type="submit" class="btn btn-agregar">Actualizar Contraseña</button>
         </form>
     </div>
 </body>
