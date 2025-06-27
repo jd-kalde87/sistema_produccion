@@ -105,6 +105,7 @@ function obtenerRegistrosConJoin($conn, $fecha_inicio = null, $fecha_fin = null)
         r.marca_temporal,
         r.colaborador,
         m.marca_maquina,
+        m.nro_cabezas,
         j.tipo_jornada,
         r.orden_produccion,
         r.referencia,
