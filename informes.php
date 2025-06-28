@@ -23,10 +23,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <p>desde aqui podras generar los informes que mas relevancia tengan para la toma de decisiones en la produccion</p>
         </div>
         <div class="button-grid">
-            <a href="tabla_registro.php">INFOME DIARIO DE PRODUCCION</a>
-            <a href="informe_colaborador.php">INFORME COLABORADOR CON MAS PRODUCCION</a>
-            <a href="informe_maquinaria.php">INFORME DE RENDIMIENTO DE MAQUINARIA</a>
-            <a href="informe_lineas.php">PRODUCCIÓN DIARIA POR MÁQUINA</a>
+            <a class="btn-informes" href="tabla_registro.php">INFOME DIARIO DE PRODUCCION</a>
+            <a class="btn-informes" href="informe_colaborador.php">INFORME COLABORADOR CON MAS PRODUCCION</a>
+            <a class="btn-informes" href="informe_maquinaria.php">INFORME DE RENDIMIENTO DE MAQUINARIA</a>
+            <a class="btn-informes" href="informe_lineas.php">PRODUCCIÓN DIARIA POR MÁQUINA</a>
         </div>
         <div class="form-links">
             <a href="inicio.php">Regresar al inicio</a>

@@ -25,7 +25,7 @@ $_SESSION['tamaño'] = $conn->query("SELECT * FROM tamaño_pieza")->fetch_all(MY
 <body>
     <div class="main-container">
         <div class="label_presentacion">
-            <h2>Opciones de Piezas</h2>
+            <h2>Opciones de Piezas 👕</h2>
             <p>Bienvenido al módulo para administrar las opciones de las piezas.</p>
             <p>Desde aquí podrás agregar o eliminar los tamaños de las piezas.</p>
         </div>

@@ -15,19 +15,24 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Inicio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+        // Creamos variables de JavaScript con los datos de PHP
+        const usuarioReporte = "<?php echo isset($_SESSION['nombre_usuario']) ? addslashes($_SESSION['nombre_usuario']) : 'N/A'; ?>";
+        const fechaReporte = "<?php echo date('Y-m-d H:i:s'); ?>";
+    </script>
 </head>
 <body>
     <div class="main-container">
         <div class="label_presentacion">
-                <h1>TABLERO PRINCIPAL REGISTRO DIARIO DE PRODUCCION</h1>
+                <h1>📊 TABLERO PRINCIPAL REGISTRO DIARIO DE PRODUCCION 📊</h1>
                 <p>Bienvenido a la pagina principal del Sistema de Produccion</p>
                 <p>desde aqui podras administrar y ejecutar la opcion que necesites</p>
         </div>
         <div class="button-grid">
-            <a href="registro_diairo.php">INGRESAR INFORMACION DIARIA</a>
-            <a href="admin_maquinaria.php">ADMINISTRAR MAQUINARIA</a>
-            <a href="opciones_produccion.php">OPCIONES DE PRODUCCION</a>
-            <a href="informes.php">GENERACION DE INFORMES</a>
+            <a class="btn-regdiario" href="registro_diairo.php">INGRESAR INFORMACION DIARIA</a>
+            <a class="btn-admaquinaria" href="admin_maquinaria.php">ADMINISTRAR MAQUINARIA</a>
+            <a class="btn-oproduccion" href="opciones_produccion.php">OPCIONES DE PRODUCCION</a>
+            <a class="btn-informes" href="informes.php">GENERACION DE INFORMES</a>
         </div>
         
         <div class="form-links">

@@ -12,7 +12,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Administracion de Maquinaria</title>
+    <title>Administracion de Maquinaria 📟</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -23,8 +23,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <p>desde aqui podras agregar o eliminar maquinaria registrada en el sistema</p>
         </div>        
         <div class="button-grid">
-            <a href="agregar_maquinaria.php">AGREGAR NUEVAS MAQUINAS</a>
-            <a href="eliminar_maquina.php">ELIMINAR MAQUINAS</a>
+            <a class="btn-admaquinaria" href="agregar_maquinaria.php">AGREGAR NUEVAS MAQUINAS</a>
+            <a class="btn-admaquinaria" href="eliminar_maquina.php">ELIMINAR MAQUINAS</a>
         </div>
         <div class="form-links">
             <a href="inicio.php">Regresar al inicio</a>

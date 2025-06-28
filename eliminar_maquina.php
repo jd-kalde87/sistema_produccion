@@ -23,7 +23,7 @@ $_SESSION['maquinas'] = obtenerMaquinas($conn);
 <body>
     <div class="main-container">
         <div class="label_presentacion">
-            <h2>Eliminar Maquinaria</h2>
+            <h2>Eliminar Maquinaria 📤</h2>
             <p>En esta seccion, podra ver la maquinaria registrada en el sistema</p>
             <p>y podra elimar alguna de ellas si asi lo requiere</p>
         </div>

@@ -17,7 +17,7 @@ $_SESSION['bordados'] = obtenerTiposBordado($conn);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Tipos de Bordado</title>
+    <title>Tipos de Bordado 🧣</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>

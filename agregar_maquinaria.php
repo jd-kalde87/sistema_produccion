@@ -22,7 +22,7 @@ $_SESSION['maquinas'] = $conn->query("SELECT * FROM maquinas")->fetch_all(MYSQLI
 <body>
     <div class="main-container">
         <div class="label_presentacion">
-            <h2>Agregar Maquinaria</h2>
+            <h2>Agregar Maquinaria 📥</h2>
             <p>En esta seccion, podra ver la maquinaria registrada en el sistema</p>
             <p>y podra agregar mas al registro</p>
         </div>

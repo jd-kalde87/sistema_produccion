@@ -17,7 +17,7 @@ $_SESSION['colores'] = obtenerColores($conn);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Administración de Colores</title>
+    <title>Administración de Colores 👔</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>

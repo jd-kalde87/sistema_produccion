@@ -10,7 +10,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cambiar Contraseña</title>
+    <title>Cambiar Contraseña 🔐🔑</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>

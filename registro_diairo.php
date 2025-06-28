@@ -25,10 +25,13 @@ $colores = obtenerOpciones($conn, 'color', 'id_color', 'codigo_color');
 <body>
     <div class="main-container">
         <div class="label_presentacion">
-            <h2>Ingresar Información Diaria</h2>
+            <h2>Ingresar Información Diaria 📋</h2>
             <p>Bienvenido al modulo para ingresar la informacion diaria</p>
             <p>Por favor ingrese la informacion de produccion que usted realizo</p>
         </div>
+        <?php if (isset($_GET['success'])): ?>
+        <p class="alert alert-success">✅ Información registrada exitosamente.</p>
+        <?php endif; ?>
         <form action="php/procesar_informacion_diaria.php" method="POST">
 
             <div class="form-group">
@@ -103,9 +106,7 @@ $colores = obtenerOpciones($conn, 'color', 'id_color', 'codigo_color');
 
             <button type="submit" class="btn btn-agregar">Guardar Información</button>
         </form>
-        <?php if (isset($_GET['success'])): ?>
-        <p class="alert alert-success">✅ Información registrada exitosamente.</p>
-        <?php endif; ?> 
+         
         <div class="form-links">
             <a href="inicio.php">Regresar al inicio</a>
         </div>

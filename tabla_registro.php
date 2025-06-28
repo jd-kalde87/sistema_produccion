@@ -10,7 +10,10 @@ include 'php/obtener_registros.php';
     <link rel="stylesheet" href="css/jquery.dataTables.css">
     <link rel="stylesheet" href="css/styles.css"> 
     <link rel="stylesheet" href="css/buttons.dataTables.min.css">
-           
+     <script>
+        const usuarioReporte = "<?php echo isset($_SESSION['nombre_usuario']) ? addslashes($_SESSION['nombre_usuario']) : 'N/A'; ?>";
+        const fechaReporte = "<?php echo date('Y-m-d H:i:s'); ?>";
+    </script>      
 </head>
 <body>
 <div class="seccion-consulta">
