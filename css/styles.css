@@ -12,7 +12,7 @@
     --secondary-color: #6c757d;
     --third-color: #6200ff;
     --success-color: #28a745;
-    --danger-color: #dc3545;
+    --danger-color: #e71a2e;
     --info-color: #17a2b8;
     --light-color: #f8f9fa;
     --dark-color: #343a40;
@@ -49,7 +49,10 @@ body {
 }
 
 /* Ajustes específicos por contenedor */
-.form-container { max-width: 450px; }
+.form-container { 
+    max-width: 450px;
+    text-align: center; 
+}
 .main-container, .logout-container, .seccion-consulta { max-width: 90%; }
 .logout-container { display: flex; justify-content: center; padding: 20px; }
 
@@ -72,6 +75,7 @@ h1, h2, h3 { color: var(--dark-color); margin-bottom: 25px; }
 .form-group select {
     width: 100%;
     padding: 12px;
+    background-color: #f3f3f3;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     transition: border-color 0.3s, box-shadow 0.3s;
@@ -115,7 +119,10 @@ h1, h2, h3 { color: var(--dark-color); margin-bottom: 25px; }
 /* Variantes de color para botones */
 .btn-primary { background-color: var(--primary-color); }
 .btn-primary:hover { background-color: #0056b3; }
-.btn-success, .btn-agregar { background-color: var(--success-color); }
+.btn-success, .btn-agregar { 
+    background-color: var(--success-color);
+    margin: auto; 
+}
 .btn-success:hover, .btn-agregar:hover { background-color: #218838; }
 .btn-danger, .btn-eliminar { background-color: var(--danger-color); }
 .btn-danger:hover, .btn-eliminar:hover { background-color: #c82333; }
@@ -136,9 +143,63 @@ h1, h2, h3 { color: var(--dark-color); margin-bottom: 25px; }
 .alert-success { background-color: #d4edda; color: #155724; border-color: #c3e6cb; }
 .alert-danger { background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; }
 .alert-info { background-color: #d1ecf1; color: #0c5460; border-color: #bee5eb; }
-.button-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 30px; }
-.button-grid a { display: block; padding: 20px; background-color: var(--success-color); color: white; text-align: center; text-decoration: none; border-radius: 8px; font-weight: 500; transition: background-color 0.3s, transform 0.2s; }
-.button-grid a:hover { background-color: #218838; transform: translateY(-3px); }
+.button-grid { 
+    display: grid; 
+    grid-template-columns: 
+    repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 15px; 
+    margin-top: 30px; 
+}
+.button-grid a { 
+    display: block;
+    font-size: large; 
+    padding: 20px; 
+    background-color: var(--success-color); 
+    color: white; 
+    text-align: center;
+     
+    text-decoration: none; 
+    border-radius: 8px; 
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s; 
+}
+.button-grid a:hover { 
+    background-color: #218838; 
+    transform: translateY(-3px); 
+}
+/* se define el color para los botones del INICIO cada boton de diferente color y su hover */
+/* boton REGISTRO DIARIO */
+.button-grid  .btn-regdiario{
+    background-color: #0ABAB5;
+}
+.button-grid .btn-regdiario:hover { 
+    background-color: #56DFCF; 
+    transform: translateY(-3px); 
+}
+/* boton registro ADMINISTRAR MAQUINARIA */
+.button-grid  .btn-admaquinaria{
+    background-color: #FF7601;
+}
+.button-grid .btn-admaquinaria:hover { 
+    background-color: #F3A26D; 
+    transform: translateY(-3px);
+}
+/* boton registro OPCIONES DE PRODUCCION */
+.button-grid  .btn-oproduccion{
+    background-color: #6A42C2;
+}
+.button-grid .btn-oproduccion:hover { 
+    background-color: #8B5DFF; 
+    transform: translateY(-3px);
+}
+/* boton registro OPCIONES DE PRODUCCION */
+.button-grid  .btn-informes{
+    background-color: #98CD00;
+}
+.button-grid .btn-informes:hover { 
+    background-color: #A4DD00; 
+    transform: translateY(-3px);
+}
 .form-links { margin-top: 20px; text-align: center; } /* Centrado explícito aquí */
 .form-links a { color: var(--primary-color); text-decoration: none; margin: 0 10px; font-size: 14px; }
 .form-links a:hover { text-decoration: underline; }
