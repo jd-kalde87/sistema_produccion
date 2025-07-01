@@ -18,8 +18,12 @@ $(document).ready(function() {
 
         resultadoDiv.html('<p class="alert alert-info">Generando informe completo...</p>');
         botonesGlobalesDiv.empty(); 
-        if (rankingTableInstance) rankingTableInstance.destroy();
-        if (barChartInstance) barChartInstance.destroy();
+        if (rankingTableInstance) {
+            rankingTableInstance.destroy();
+        }
+        if (barChartInstance) {
+            barChartInstance.destroy();
+        }
 
         $.ajax({
             url: 'api_top_colaborador.php',
@@ -30,7 +34,7 @@ $(document).ready(function() {
                 resultadoDiv.empty();
 
                 if (!response.rankingData || response.rankingData.length === 0) {
-                    resultadoDiv.html('<p class="alert alert-info">No se encontraron datos...</p>');
+                    resultadoDiv.html('<p class="alert alert-info">No se encontraron datos con los filtros seleccionados.</p>');
                     return;
                 }
 
@@ -41,9 +45,8 @@ $(document).ready(function() {
 
                 const tabla = renderizarRanking(response.rankingData);
                 const grafico = renderizarGrafico(response.chartData, colaborador);
-
-                if(tabla && grafico) {
-                    // Pasamos las variables de fecha al generador de botones
+                
+                if (tabla) {
                     renderizarBotonesGlobales(tabla, grafico, fechaInicio, fechaFin);
                 }
             },
@@ -53,14 +56,16 @@ $(document).ready(function() {
         });
     });
 
+    /**
+     * Función para RENDERIZAR LA TABLA DEL RANKING 
+     */
     function renderizarRanking(rankingData) {
-        // Esta función no cambia
-        if (rankingTableInstance) { rankingTableInstance.destroy(); }
-        rankingData.forEach((item, index) => { item.posicion = index + 1; });
+        rankingData.forEach((item, index) => {
+            item.posicion = index + 1;
+        });
         
         $('#ranking-container').html(`
             <h3>Ranking de Colaboradores</h3>
-            <div id="controles-tabla-ranking" style="display: flex; justify-content: flex-end; margin-bottom: 20px;"></div>
             <div class="tabla-contenedor">
                 <table id="tabla-ranking" class="tabla-registro" style="width:100%">
                     <thead><tr><th>Posición</th><th>Colaborador</th><th>Total Unidades</th></tr></thead>
@@ -75,14 +80,19 @@ $(document).ready(function() {
                 { data: 'colaborador' },
                 { data: 'total_unidades', render: $.fn.dataTable.render.number('.', ',', 0, '') }
             ],
-            dom: 't', // DOM mínimo, solo la tabla, ya que los controles son externos
-            language: { url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json' },
-            paging: false, info: false, searching: false
+            dom: 't', // Solo la tabla
+            language: {
+                url: 'js/i18n/es-ES.json' // Usando el archivo local
+            },
+            paging: false, 
+            info: false, 
+            searching: false
         });
+  
     }
 
     /**
-     * Se añade el parámetro 'colaborador' para usarlo en el título del gráfico.
+     * Función para RENDERIZAR EL GRÁFICO DE BARRAS
      */
     function renderizarGrafico(chartData, colaborador) {
         const chartContainer = $('#chart-container');
@@ -102,33 +112,30 @@ $(document).ready(function() {
             dataset.backgroundColor = aColores[index % aColores.length];
         });
 
-        if (barChartInstance) barChartInstance.destroy();
-
+        if (barChartInstance) {
+            barChartInstance.destroy();
+        }
+        
         const ctx = document.getElementById('comportamientoChart').getContext('2d');
         const tituloGrafico = 'Comportamiento de ' + (colaborador === 'todos' ? 'Todos los Colaboradores' : colaborador.toUpperCase());
-
-        return new Chart(ctx, {
+        
+        barChartInstance = new Chart(ctx, {
             type: 'bar', data: chartData,
             options: {
                 responsive: true, maintainAspectRatio: false,
-                plugins: { 
-                    legend: { position: 'top' },
-                    // Título dinámico para el gráfico
-                    title: { display: true, text: tituloGrafico }
-                },
+                plugins: { legend: { position: 'top' }, title: { display: true, text: tituloGrafico } },
                 scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
             }
         });
+        return barChartInstance;
     }
 
     /**
-     * Función para RENDERIZAR LOS BOTONES GLOBALES
-     * Actualizada con la nueva lógica para descargar e imprimir el gráfico.
+     * Función para RENDERIZAR LOS BOTONES GLOBALES Y ASIGNAR SU LÓGICA
      */
     function renderizarBotonesGlobales(tabla, grafico, fechaInicio, fechaFin) {
         const botonesDiv = $('#contenedor-global-botones');
         
-        // HTML de los 4 botones
         botonesDiv.html(`
             <div class="seccion-formulario" style="display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap;">
                 <span style="font-weight: bold; align-self: center;">RANKING:</span>
@@ -140,7 +147,6 @@ $(document).ready(function() {
             </div>
         `);
 
-        // --- LÓGICA PARA LOS BOTONES DEL RANKING (TABLA) ---
         const nitEmpresa = '900.123.456-7';
         const nombreEmpresa = 'BORDADOS DEL SUR S.A.S.';
         const rangoFechas = `Del ${fechaInicio} al ${fechaFin}`;
@@ -149,50 +155,30 @@ $(document).ready(function() {
         const encabezadoImprimir = `<div style="text-align:center;"><h3>${nombreEmpresa}</h3><p>NIT: ${nitEmpresa}<br>${rangoFechas}<br>Fecha: ${fechaReporte}</p></div>`;
         const pieDePaginaImprimir = `<p style="text-align:center; font-size:10px;">Generado por: ${usuarioReporte}</p>`;
 
-        const botonesTabla = new $.fn.dataTable.Buttons(tabla, {
+        new $.fn.dataTable.Buttons(tabla, {
             buttons: [
-                { extend: 'excelHtml5', title: 'Ranking de Colaboradores', messageTop: encabezadoExcel, messageBottom: pieDePaginaExcel },
-                { extend: 'print', title: 'Ranking de Colaboradores', messageTop: encabezadoImprimir, messageBottom: pieDePaginaImprimir, customize: function(win){ $(win.document.body).css('background','none').find('h1').css('text-align','center'); $(win.document.body).css('font-size','10pt').find('table').addClass('compact').css('font-size','inherit');} }
+                { extend: 'excelHtml5', className:'buttons-excel', title: 'Ranking de Colaboradores', messageTop: encabezadoExcel, messageBottom: pieDePaginaExcel },
+                { extend: 'print', className:'buttons-print', title: 'Ranking de Colaboradores', messageTop: encabezadoImprimir, messageBottom: pieDePaginaImprimir, customize: function(win){ $(win.document.body).css('background','none').find('h1').css('text-align','center'); $(win.document.body).css('font-size','10pt').find('table').addClass('compact').css('font-size','inherit');} }
             ]
-        }).container().hide();
-
-        $('#descargarTabla').on('click', () => botonesTabla.find('.buttons-excel').trigger('click'));
-        $('#imprimirTabla').on('click', () => botonesTabla.find('.buttons-print').trigger('click'));
-
-        // ===============================================
-        // ===== INICIO DE LA MODIFICACIÓN =====
-        // ===============================================
-
-        // --- LÓGICA PARA LOS BOTONES DEL GRÁFICO (ACTUALIZADA) ---
-        $('#descargarGrafico').on('click', () => {
-            const link = document.createElement('a');
-            link.href = grafico.toBase64Image('image/png', 1);
-            // Nombre de archivo dinámico
-            link.download = `Grafico_Colaboradores_${fechaInicio}_a_${fechaFin}.png`;
-            link.click();
         });
-        
-        // CORRECCIÓN para la impresión en blanco
-        $('#imprimirGrafico').on('click', () => {
-            const dataUrl = grafico.toBase64Image();
-            const ventanaImpresion = window.open('', '_blank');
-            
-            // Construimos el HTML completo con encabezado, imagen y pie de página
-            ventanaImpresion.document.write(`
-                <html>
-                    <head><title>Imprimir Gráfico de Desempeño</title></head>
-                    <body style="font-family: Arial, sans-serif;">
-                        ${encabezadoImprimir}
-                        <div style="text-align:center; margin-top: 20px;">
-                            <img src="${dataUrl}" style="max-width: 95%;" onload="window.print(); setTimeout(function() { window.close(); }, 100);">
-                        </div>
-                        ${pieDePaginaImprimir}
-                    </body>
-                </html>`);
-            ventanaImpresion.document.close();
-        });
-        // ===============================================
-        // ===== FIN DE LA MODIFICACIÓN =====
-        // ===============================================
+
+        $('#descargarTabla').on('click', () => tabla.buttons('.buttons-excel').trigger());
+        $('#imprimirTabla').on('click', () => tabla.buttons('.buttons-print').trigger());
+
+        if (grafico) {
+            $('#descargarGrafico').on('click', () => {
+                const link = document.createElement('a');
+                link.href = grafico.toBase64Image('image/png', 1);
+                link.download = `Grafico_Colaboradores_${fechaInicio}_a_${fechaFin}.png`;
+                link.click();
+            });
+
+            $('#imprimirGrafico').on('click', () => {
+                const dataUrl = grafico.toBase64Image();
+                const ventanaImpresion = window.open('', '_blank');
+                ventanaImpresion.document.write(`<html><head><title>Imprimir Gráfico de Desempeño</title></head><body style="text-align:center;"><img src="${dataUrl}" onload="window.print(); setTimeout(function() { window.close(); }, 100);"></body></html>`);
+                ventanaImpresion.document.close();
+            });
+        }
     }
 });
