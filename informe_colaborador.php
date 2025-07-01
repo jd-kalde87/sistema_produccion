@@ -25,7 +25,7 @@ $conn->close();
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/jquery.dataTables.css">
     <link rel="stylesheet" href="css/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
     
     <script>
         const usuarioReporte = "<?php echo isset($_SESSION['nombre_usuario']) ? addslashes($_SESSION['nombre_usuario']) : 'N/A'; ?>";
@@ -80,11 +80,11 @@ $conn->close();
 
     <script src="js/jquery-3.7.0.min.js"></script>
     <script src="js/jquery.dataTables.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/chart.min.js"></script>
     <script src="js/dataTables.buttons.min.js"></script>
     <script src="js/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="js/pdfmake.min.js"></script>
+    <script src="js/vfs_fonts.js"></script>
     <script src="js/buttons.html5.min.js"></script>
     <script src="js/buttons.print.min.js"></script>
     <script src="js/logic_informe_colaborador.js"></script>
