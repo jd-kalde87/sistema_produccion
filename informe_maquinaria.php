@@ -7,7 +7,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 
-// Consultamos las máquinas disponibles para el menú desplegable
 $maquinas = [];
 $sql_maquinas = "SELECT id_maquina, marca_maquina, nro_cabezas FROM maquinas ORDER BY marca_maquina";
 $resultado_maquinas = $conn->query($sql_maquinas);
@@ -22,11 +21,13 @@ $conn->close();
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard de Rendimiento de Maquinaria</title>
+    <title>Dashboard de Unidades por Máquina</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/jquery.dataTables.css">
     <link rel="stylesheet" href="css/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="css/all.min.css"> <script>
+    <link rel="stylesheet" href="css/all.min.css">
+    
+    <script>
         const usuarioReporte = "<?php echo isset($_SESSION['nombre_usuario']) ? addslashes($_SESSION['nombre_usuario']) : 'N/A'; ?>";
         const fechaReporte = "<?php echo date('Y-m-d H:i:s'); ?>";
     </script>
@@ -34,29 +35,21 @@ $conn->close();
 <body>
     <div class="main-container">
         <div class="label_presentacion">
-            <h2>Dashboard de Rendimiento de Maquinaria</h2>
-            <p>Utiliza los filtros para analizar los rankings y tendencias de producción por máquina.</p>
+            <h2>Dashboard de Unidades por Máquina</h2>
+            <p>Filtra para analizar rankings, desgloses mensuales y tendencias de unidades producidas.</p>
         </div>
 
         <div class="seccion-formulario">
-             <form id="filtro-maquinaria-form">
+            <form id="filtro-maquinaria-form">
                 <div class="filtro-form">
-                    <div class="form-group">
-                        <label for="fecha_inicio">Fecha de Inicio:</label>
-                        <input type="date" id="fecha_inicio" name="fecha_inicio" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="fecha_fin">Fecha de Fin:</label>
-                        <input type="date" id="fecha_fin" name="fecha_fin" required>
-                    </div>
+                    <div class="form-group"><label for="fecha_inicio">Fecha Inicio:</label><input type="date" id="fecha_inicio" name="fecha_inicio" required></div>
+                    <div class="form-group"><label for="fecha_fin">Fecha Fin:</label><input type="date" id="fecha_fin" name="fecha_fin" required></div>
                     <div class="form-group">
                         <label for="maquina">Máquina:</label>
                         <select id="maquina" name="maquina">
-                            <option value="todas">-- Todas las Máquinas --</option>
+                            <option value="todas">-- Todas --</option>
                             <?php foreach ($maquinas as $maquina): ?>
-                                <option value="<?= htmlspecialchars($maquina['id_maquina']) ?>">
-                                    <?= htmlspecialchars(strtoupper($maquina['marca_maquina'] . ' - ' . $maquina['nro_cabezas'] . ' cabezas')) ?>
-                                </option>
+                                <option value="<?= htmlspecialchars($maquina['id_maquina']) ?>"><?= htmlspecialchars(strtoupper($maquina['marca_maquina'] . ' - ' . $maquina['nro_cabezas'] . ' cabezas')) ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -66,14 +59,8 @@ $conn->close();
         </div>
 
         <div id="contenedor-global-botones" style="margin-bottom: 20px;"></div>
-
-        <div id="resultado-informe">
-             <p class="alert alert-info">Por favor, selecciona los filtros y haz clic en "Generar Informe".</p>
-        </div>
-
-        <div class="form-links">
-            <a href="informes.php">Regresar al menú de informes</a>
-        </div>
+        <div id="resultado-informe"><p class="alert alert-info">Selecciona los filtros para empezar.</p></div>
+        <div class="form-links"><a href="informes.php">Regresar</a></div>
     </div>
 
     <script src="js/jquery-3.7.0.min.js"></script>
@@ -85,5 +72,6 @@ $conn->close();
     <script src="js/vfs_fonts.js"></script>
     <script src="js/buttons.html5.min.js"></script>
     <script src="js/buttons.print.min.js"></script>
-    <script src="js/logic_informe_maquinaria.js"></script> </body>
+    <script src="js/logic_informe_maquinaria.js"></script>
+</body>
 </html>
