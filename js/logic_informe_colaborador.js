@@ -137,7 +137,7 @@ $(document).ready(function() {
         const botonesDiv = $('#contenedor-global-botones');
         
         botonesDiv.html(`
-            <div class="seccion-formulario" style="display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap;">
+            <div class="seccion-formulario" style="display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; align-items: center;">
                 <span style="font-weight: bold; align-self: center;">RANKING:</span>
                 <button id="descargarTabla" class="btn btn-success"><i class="fas fa-file-excel"></i> Excel</button>
                 <button id="imprimirTabla" class="btn btn-info"><i class="fas fa-print"></i> Imprimir</button>
