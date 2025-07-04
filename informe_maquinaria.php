@@ -35,7 +35,7 @@ $conn->close();
 <body>
     <div class="main-container">
         <div class="label_presentacion">
-            <h2>Dashboard de Unidades por Máquina</h2>
+            <h2>Informe de produccion por maquina (unidades producidas)</h2>
             <p>Filtra para analizar rankings, desgloses mensuales y tendencias de unidades producidas.</p>
         </div>
 

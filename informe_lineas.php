@@ -21,7 +21,7 @@ $conn->close();
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard de Tendencias por Máquina</title>
+    <title>Informe puntadas x maquina</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/jquery.dataTables.css">
     <link rel="stylesheet" href="css/buttons.dataTables.min.css">
@@ -35,8 +35,8 @@ $conn->close();
 <body>
     <div class="main-container">
         <div class="label_presentacion">
-            <h2>Dashboard de Tendencias por Máquina</h2>
-            <p>Filtra por fecha y máquina para analizar rankings, desgloses mensuales y tendencias diarias.</p>
+            <h2>Informe de puntadas por maquina</h2>
+            <p>Filtra por fecha y máquina para analizar rankings, desgloses mensuales y tendencias de puntadas utilizadas en la produccion.</p>
         </div>
 
         <div class="seccion-formulario">

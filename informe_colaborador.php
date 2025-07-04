@@ -21,7 +21,7 @@ $conn->close();
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ranking y Desempeño de Colaboradores</title>
+    <title>Informe de desempeño por colaborador</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/jquery.dataTables.css">
     <link rel="stylesheet" href="css/buttons.dataTables.min.css">
@@ -35,8 +35,8 @@ $conn->close();
 <body>
     <div class="main-container">
         <div class="label_presentacion">
-            <h2>Ranking y Desempeño de Colaboradores</h2>
-            <p>Selecciona los filtros para ver el ranking de producción y el comportamiento diario.</p>
+            <h2>Informe de desempeño por colaborador</h2>
+            <p>Selecciona los filtros para ver el comportamiento de produccion segun el colaborador</p>
         </div>
 
         <div class="seccion-formulario">
