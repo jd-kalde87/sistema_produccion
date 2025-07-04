@@ -52,8 +52,11 @@ $(document).ready(function() {
             <div class="seccion-formulario" style="display:flex;gap:5px;justify-content:flex-end;flex-wrap:wrap;align-items:center;">
                 <span style="font-weight:bold;">RANKING:</span><button id="dlRanking" class="btn btn-success" title="Exportar a Excel"><i class="fas fa-file-excel"></i></button><button id="prRanking" class="btn btn-info" title="Imprimir"><i class="fas fa-print"></i></button>
                 <span style="font-weight:bold;margin-left:10px;">DESGLOSE MENSUAL:</span><button id="dlMensual" class="btn btn-success" title="Exportar a Excel"><i class="fas fa-file-excel"></i></button><button id="prMensual" class="btn btn-info" title="Imprimir"><i class="fas fa-print"></i></button>
-                <span style="font-weight:bold;margin-left:10px;">GRÁFICO BARRAS:</span><button id="dlGraficoBarras" class="btn btn-success" title="Descargar PNG"><i class="fas fa-download"></i></button><button id="prGraficoBarras" class="btn btn-info" title="Imprimir"><i class="fas fa-print"></i></button>
-                <span style="font-weight:bold;margin-left:10px;">GRÁFICO LÍNEAS:</span><button id="dlGraficoLineas" class="btn btn-success" title="Descargar PNG"><i class="fas fa-download"></i></button><button id="prGraficoLineas" class="btn btn-info" title="Imprimir"><i class="fas fa-print"></i></button>
+                
+            </div>
+            <div class="seccion-formulario" style="display:flex;gap:5px;justify-content:flex-end;flex-wrap:wrap;align-items:center;">
+                 <span style="font-weight:bold;margin-left:10px;">GRÁFICO BARRAS:</span><button id="dlGraficoBarras" class="btn btn-success" title="Descargar PNG"><i class="fas fa-download"></i></button><button id="prGraficoBarras" class="btn btn-info" title="Imprimir"><i class="fas fa-print"></i></button>
+                 <span style="font-weight:bold;margin-left:10px;">GRÁFICO LÍNEAS:</span><button id="dlGraficoLineas" class="btn btn-success" title="Descargar PNG"><i class="fas fa-download"></i></button><button id="prGraficoLineas" class="btn btn-info" title="Imprimir"><i class="fas fa-print"></i></button>
             </div>
         `);
         const nit='900.123.456-7',empresa='BORDADOS DEL SUR S.A.S.';
