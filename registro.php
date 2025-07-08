@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,6 +11,7 @@
     <div class="form-container">
         <h2>Registro de Nuevo Usuario ✨</h2>
         <?php
+        // Mostramos el error si existe, incluyendo el que crearemos para el admin
         if (isset($_GET['error'])) {
             echo '<p class="alert alert-danger">' . htmlspecialchars($_GET['error']) . '</p>';
         }
@@ -36,6 +38,7 @@
                 <select id="tipo_identificacion" name="tipo_identificacion" required>
                     <option value="CC">Cédula de Ciudadanía</option>
                     <option value="CE">Cédula de Extranjería</option>
+                    <option value="PS">Pasaporte</option>
                 </select>
             </div>
             <div class="form-group">
@@ -49,6 +52,14 @@
             <div class="form-group">
                 <label for="email">Correo Electrónico</label>
                 <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="rol">Tipo de Usuario (Rol)</label>
+                <select id="rol" name="rol" required>
+                    <option value="operario" selected>Operario (Registra producción)</option>
+                    <option value="administrador">Administrador (Acceso total)</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-agregar">Registrarme</button>
         </form>

@@ -3,7 +3,7 @@ session_start();
 include 'db.php';
 
 // Validar sesión activa
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+if (!isset($_SESSION['loggedin']) || !isset($_SESSION['rol']) || $_SESSION['rol'] !== 'administrador') {
     header("Location: login.php");
     exit;
 }
